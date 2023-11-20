@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Math.exceptions.UnsupportedMathOperationExcetion;
+
 @RestController
 public class MathController {
     
@@ -15,7 +17,7 @@ public class MathController {
     	
     	if(!isNumeric(numberOne) || !isNumeric(numberTwo)) { 
     		
-    		throw new Exception();
+    		throw new UnsupportedMathOperationExcetion("Por favor, passe um valor numerico");
     	
     	}
     	
