@@ -23,6 +23,45 @@ public class MathController {
     	
         return convertToDouble(numberOne) + convertToDouble(numberTwo);
     }
+    
+    @RequestMapping(value="/sub/{numberOne}/{numberTwo}", method=RequestMethod.GET)
+    public Double sub(@PathVariable("numberOne") String numberOne, 
+                      @PathVariable("numberTwo") String numberTwo) throws Exception {
+    	
+    	if(!isNumeric(numberOne) || !isNumeric(numberTwo)) { 
+    		
+    		throw new UnsupportedMathOperationExcetion("Por favor, passe um valor numerico");
+    	
+    	}
+    	
+        return convertToDouble(numberOne) - convertToDouble(numberTwo);
+    }
+    
+    @RequestMapping(value="/media/{numberOne}/{numberTwo}", method=RequestMethod.GET)
+    public Double media(@PathVariable("numberOne") String numberOne, 
+                      @PathVariable("numberTwo") String numberTwo) throws Exception {
+    	
+    	if(!isNumeric(numberOne) || !isNumeric(numberTwo)) { 
+    		
+    		throw new UnsupportedMathOperationExcetion("Por favor, passe um valor numerico");
+    	
+    	}
+    	
+        return (convertToDouble(numberOne) + convertToDouble(numberTwo)) / 2;
+    }
+    
+    @RequestMapping(value="/mult/{numberOne}/{numberTwo}", method=RequestMethod.GET)
+    public Double mult(@PathVariable("numberOne") String numberOne, 
+                      @PathVariable("numberTwo") String numberTwo) throws Exception {
+    	
+    	if(!isNumeric(numberOne) || !isNumeric(numberTwo)) { 
+    		
+    		throw new UnsupportedMathOperationExcetion("Por favor, passe um valor numerico");
+    	
+    	}
+    	
+        return convertToDouble(numberOne) * convertToDouble(numberTwo);
+    }
 
 	private Double convertToDouble(String strNumber) {
 		if(strNumber == null) {
